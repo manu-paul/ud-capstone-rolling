@@ -1,0 +1,31 @@
+The recommended git tool is: NONE
+using credential github
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/manu-paul/ud-capstone-rolling.git
+ > git init /var/lib/jenkins/workspace/ud-capstone-rolling_main # timeout=10
+Fetching upstream changes from https://github.com/manu-paul/ud-capstone-rolling.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+using GIT_ASKPASS to set credentials GitHub Access Token
+ > git fetch --no-tags --progress -- https://github.com/manu-paul/ud-capstone-rolling.git +refs/heads/main:refs/remotes/origin/main # timeout=10
+ > git config remote.origin.url https://github.com/manu-paul/ud-capstone-rolling.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/main:refs/remotes/origin/main # timeout=10
+Avoid second fetch
+Checking out Revision 2178e1508fedc6f7c5aa28af6d59bdf494638a8b (main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 2178e1508fedc6f7c5aa28af6d59bdf494638a8b # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b main 2178e1508fedc6f7c5aa28af6d59bdf494638a8b # timeout=10
+Commit message: "initial"
+First time build. Skipping changelog.
+Cleaning workspace
+ > git rev-parse --verify HEAD # timeout=10
+Resetting working tree
+ > git reset --hard # timeout=10
+ > git clean -fdx # timeout=10
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
++ tidy -q -e index.html
+line 7 column 9 - Warning: missing </h1> before </body>
+script returned exit code 1

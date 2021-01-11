@@ -5,13 +5,13 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath="pmanu1977/capstone"
+dockerpath="pmanu1977/capstone-rolling"
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker login --username dockerhub
-docker image tag capstone $dockerpath
+docker image tag capstone-rolling $dockerpath
 
 # Step 3:
 # Push image to a docker repository

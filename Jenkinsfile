@@ -4,18 +4,19 @@ pipeline {
         stage('Lint HTML') {
             steps {
                 sh 'tidy -q -e *.html'
+                sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
             }
         }        
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t capstone .'
+                sh 'docker build -t capstone-rolling .'
             }
         }
         stage('Push Docker Image') {
             steps {
                 withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-                    sh "docker tag capstone pmanu1977/capstone"
-                    sh "docker push pmanu1977/capstone"
+                    sh "docker tag capstone-rolling pmanu1977/capstone-rolling"
+                    sh "docker push pmanu1977/capstone-rolling"
                 }
             }
         }
@@ -29,7 +30,7 @@ pipeline {
                     sh "kubectl get nodes"
                     sh "kubectl get deployment"
                     sh "kubectl get pod -o wide"
-                    sh "kubectl get service/capstone"
+                    sh "kubectl get service/capstone-rolling"
                 }
             }
         }
